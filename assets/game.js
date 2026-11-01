@@ -386,10 +386,79 @@
         e.preventDefault();
         state = defaults();
         try { localStorage.removeItem(STORAGE_KEY); } catch (err) {}
+        try { localStorage.removeItem('sjz_bgm_on'); localStorage.removeItem('sjz_bgm_t'); } catch (err) {}
         try { window.name = NAME_PREFIX + JSON.stringify(state); } catch (err) {}
         window.location.href = el.getAttribute('data-reset-to') || 'start.html';
       });
     });
+  }
+
+  function initBgm() {
+    var KEY_ON = 'sjz_bgm_on';
+    var KEY_T = 'sjz_bgm_t';
+    var startBtn = document.querySelector('[data-bgm-start]');
+
+    function makeAudio() {
+      var a = document.createElement('audio');
+      a.src = 'assets/audio/bgm.m4a';
+      a.loop = true;
+      a.preload = 'auto';
+      a.volume = 0.35;
+      return a;
+    }
+
+    if (startBtn) {
+      startBtn.addEventListener('click', function (e) {
+        try { localStorage.setItem(KEY_ON, '1'); localStorage.setItem(KEY_T, '0'); } catch (err) {}
+        var a = makeAudio();
+        var p = null;
+        try { p = a.play(); } catch (err) {}
+        if (p && p.then) {
+          e.preventDefault();
+          var href = startBtn.getAttribute('href');
+          p.then(function () { window.location.href = href; }, function () { window.location.href = href; });
+        }
+      });
+      return;
+    }
+
+    var on = false;
+    try { on = localStorage.getItem(KEY_ON) === '1'; } catch (err) {}
+    if (!on) return;
+
+    var audio = makeAudio();
+    var t = 0;
+    try { t = parseFloat(localStorage.getItem(KEY_T) || '0') || 0; } catch (err) {}
+    audio.addEventListener('loadedmetadata', function () {
+      if (t > 0 && (!audio.duration || t < audio.duration - 1)) {
+        try { audio.currentTime = t; } catch (err) {}
+      }
+    });
+    var saveT = function () {
+      try { localStorage.setItem(KEY_T, String(audio.currentTime || 0)); } catch (err) {}
+    };
+    setInterval(saveT, 2000);
+    window.addEventListener('beforeunload', saveT);
+
+    var played = false;
+    function unhook() {
+      document.removeEventListener('pointerdown', onGesture);
+      document.removeEventListener('keydown', onGesture);
+    }
+    function tryPlay() {
+      if (played) return;
+      var p = null;
+      try { p = audio.play(); } catch (err) {}
+      if (p && p.then) {
+        p.then(function () { played = true; unhook(); }, function () {});
+      } else {
+        played = true; unhook();
+      }
+    }
+    function onGesture() { tryPlay(); }
+    document.addEventListener('pointerdown', onGesture);
+    document.addEventListener('keydown', onGesture);
+    tryPlay();
   }
 
   function init() {
@@ -403,6 +472,7 @@
     bindFinal();
     bindEnding();
     bindReset();
+    initBgm();
   }
 
   if (document.readyState === 'loading') {
