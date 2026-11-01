@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>更衣柜 No.071 · 大厦崩塌</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-clue="locker">
+<div class="sheet">
+  <header class="case-head">
+    <div class="case-brand">
+      <strong>石家庄市档案馆 · 遗物库</strong>
+      SJZ-1998-1007 / 更衣室 / 柜 071
+    </div>
+  </header>
+
+  <nav class="crumbs">
+    <a href="index.html">寻人帖</a><span class="sep">/</span>
+    <a href="gate.html">门卫登记簿</a><span class="sep">/</span>
+    <span class="current">更衣柜 No.071</span>
+  </nav>
+
+  <section class="page-head">
+    <div class="eyebrow">LOCKER No.071 · PERSONAL EFFECTS</div>
+    <h1 class="page-title">更衣柜 No.071</h1>
+    <p class="page-sub">第四制药厂 · 男更衣室 · 西墙倒数第二格<br>柜门贴着一张球拍贴纸。四位密码锁还在。</p>
+    <div class="page-meta">
+      <span>使用人：<b>陈卫东</b></span>
+      <span>工号：<b>04071</b></span>
+      <span>锁：<b>四位数字</b></span>
+      <span>状态：<b>1998年后未开启</b></span>
+    </div>
+  </section>
+
+  <figure class="plate">
+    <img src="assets/images/p04-locker.jpg" alt="贴有球拍贴纸的铁皮更衣柜">
+    <figcaption>
+      <span>更衣柜 No.071 · 遗物库 · 1998年后未开启</span>
+      <span class="no">PLATE 04 / 柜子</span>
+    </figcaption>
+  </figure>
+
+  <div class="lock-wrap">
+    <div class="lock-card">
+      <h2>四位密码锁</h2>
+      <p class="lock-sub">按老赵的说法，这个柜子的密码“从来只用工号的后四位”。</p>
+
+      <form data-lock-form data-lock="4071" data-flag="locker_open">
+        <label for="locker-code">输入密码：</label>
+        <input id="locker-code" class="lock-input" type="text" inputmode="numeric" maxlength="8" placeholder="····" autocomplete="off" autofocus>
+        <div class="lock-actions">
+          <button type="submit" class="btn primary">转动锁芯</button>
+          <a class="btn" href="gate.html">回门卫登记簿</a>
+        </div>
+        <p class="lock-msg" data-lock-msg></p>
+      </form>
+
+      <div class="lock-hint">
+        工号是五位：04071。锁只有四位。<br>
+        <span data-lock-deep hidden><b>提示：去掉最前面的 0。后四位是 4071。</b></span>
+      </div>
+
+      <div class="lock-open-note" data-lock-open="locker_open" hidden>
+        锁芯发出一声很轻的响。柜门弹开一条缝，里面是樟脑丸和旧棉布的味道。<br>
+        <a href="home.html">把东西带回家 →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="record" data-lock-open="locker_open" hidden>
+    <div class="doc-head"><span>柜内遗物 · 清点记录</span><span>L-071</span></div>
+    <h2>叠好的工作服</h2>
+    <p>一件蓝色工作服，洗得发白。左胸口袋上别着厂徽，编号 <b>04071</b>。口袋里有一张 1987 年的《临床观察告知书》，纸已经发黄。</p>
+    <p>告知书上写着：第四制药厂“安宁”营养剂临床观察小组，1987—1998，入组职工 17 人。组长签名：<b>郑国华</b>。</p>
+    <p>工作服下面压着一只乒乓球拍。拍柄被汗水浸成了深褐色，上面刻着四个数字：<b>10·07</b>。</p>
+
+    <button type="button" class="hotspot" data-reveal="badge">看厂徽编号</button>
+    <div class="reveal-content" data-reveal-content="badge" hidden>
+      <p>厂徽背面用针划了一行字：<b>04071 / 陈卫东 / 仓库</b>。</p>
+      <p>“仓库”两个字的下面，又用更细的针尖补了三个字：<b>第三排</b>。</p>
+    </div>
+
+    <button type="button" class="hotspot" data-reveal="paddle_date">看球拍柄上的刻字</button>
+    <div class="reveal-content" data-reveal-content="paddle_date" hidden>
+      <p>“10·07”不是日期，是小默第一次拿市里亚军的那个下午。父亲把球拍借给儿子，自己在球室外面站了一小时，没有进去。</p>
+      <p>拍柄底部还刻了一个更小的数字：<b>3-3</b>。第三排，第三层。</p>
+    </div>
+
+    <p style="margin-top:18px">柜子最里面贴着半张合影。照片从中间被撕开，只剩父亲和母亲。父亲的脸被人用圆珠笔划掉了。</p>
+    <button type="button" class="hotspot" onclick="window.location.href='photo-back.html'">看另外半张照片的背面</button>
+  </div>
+
+  <div class="body-copy">
+    <p class="lead">父亲把球拍留在柜子里，没有带回家。一个准备第二天还回来的人，才会把东西留在柜子里。</p>
+    <p>但柜子里的告知书、厂徽上的“第三排”，又像在替他把某条路提前标好。</p>
+    <div class="btn-row">
+      <a class="btn primary" href="home.html">回1998年10月7日的家</a>
+    </div>
+  </div>
+
+  <footer class="footer-note">
+    <span>遗物库 · L-071 · 更衣柜</span>
+    <span><a href="index.html">寻人帖</a> · <a href="hospital.html">职工医院病历</a></span>
+    <span><a href="start.html">回到起始页</a></span>
+  </footer>
+  <div class="page-no">第 04 页 / 共 30 页</div>
+</div>
+<script src="assets/game.js"></script>
+</body>
+</html>

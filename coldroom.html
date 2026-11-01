@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>三号冷库 · 门禁 · 大厦崩塌</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="sheet">
+  <header class="case-head">
+    <div class="case-brand">
+      <strong>石家庄市档案馆 · 现场记录 B3-03</strong>
+      SJZ-1998-1007 / 三号冷库 / 门禁未解
+    </div>
+  </header>
+
+  <nav class="crumbs">
+    <a href="index.html">寻人帖</a><span class="sep">/</span>
+    <a href="classroom.html">旧教室</a><span class="sep">/</span>
+    <span class="current">三号冷库 · 门禁</span>
+  </nav>
+
+  <section class="page-head">
+    <div class="eyebrow">COLD STORAGE No.3 · ACCESS CONTROL</div>
+    <h1 class="page-title">三号冷库</h1>
+    <p class="page-sub">第四制药厂旧址 · 地下三层<br>主楼已拆除。入口在人民商场地下停车场B3层，消防通道尽头。</p>
+    <div class="page-meta">
+      <span>位置：<b>地下三层</b></span>
+      <span>门禁：<b>四位数字</b></span>
+      <span>最后一次开启：<b>1998-10-07</b></span>
+      <span>状态：<b>未解密</b></span>
+    </div>
+  </section>
+
+  <figure class="plate">
+    <img src="assets/images/p13-coldroom.jpg" alt="带有键盘锁与抓痕的冷库铁门">
+    <figcaption>
+      <span>三号冷库门禁 · 地下三层 · 2026年8月17日</span>
+      <span class="no">PLATE 13 / 冷库</span>
+    </figcaption>
+  </figure>
+
+  <div class="lock-wrap">
+    <div class="lock-card">
+      <h2>输入四位门禁</h2>
+      <p class="lock-sub">ACCESS CONTROL · 4 DIGITS · 键盘上的数字已经磨掉了一半</p>
+
+      <form data-lock-form data-lock="0817" data-next="coldroom-inside.html" data-flag="coldroom_open">
+        <label for="coldcode">门禁密码：</label>
+        <input id="coldcode" class="lock-input" type="text" inputmode="numeric" maxlength="8" placeholder="····" autocomplete="off" autofocus>
+        <div class="lock-actions">
+          <button type="submit" class="btn primary">验证门禁</button>
+          <a class="btn" href="classroom.html">回旧教室</a>
+        </div>
+        <p class="lock-msg" data-lock-msg></p>
+      </form>
+
+      <div class="lock-hint">
+        父亲习惯把重要的日子缩成四个数字。母亲总说，她的生日是夏天最热的一天。<br>
+        <span data-lock-deep hidden><b>提示：病历第一页写着——1952年8月17日。</b></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="btn-row" style="padding:0 38px" data-lock-open="coldroom_open" hidden>
+    <a class="btn primary" href="coldroom-inside.html">门已经开了 · 进入第三排货架</a>
+  </div>
+
+  <div class="body-copy">
+    <button type="button" class="hotspot" data-reveal="door_scratches">凑近看门内侧的抓痕</button>
+    <div class="reveal-content" data-reveal-content="door_scratches" hidden>
+      <p>抓痕一共十九道，集中在下半扇门的右侧，高度正好是一个成年人坐在或躺在地上时，手能够到的地方。</p>
+      <p>最上面一道很深，指甲嵌进了漆里。旁边还有一排更小的痕迹，像是有人在数日子：五道一组，三组，再加四道。</p>
+      <p>门是从外面锁上的。抓痕在门内侧。冷库的压缩机和照明都停了，但门缝里一直没有结霜——因为门在1998年10月7日22:00之后，又被打开过一次。</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <b>现场说明</b>：门禁记录显示，这扇门最后一次开启是在1998年10月7日22时00分之前。之后，它从外面被封死。门内侧的把手上有反复摩擦的痕迹。档案馆的现场记录只写了一行：“门内侧有抓痕。”
+  </div>
+
+  <div class="body-copy">
+    <p class="small">如果门禁没有打开，说明密码还不对。母亲生日的月和日，是四位数字：0817。</p>
+    <div class="btn-row">
+      <a class="btn" href="hospital.html">回看母亲的病历</a>
+    </div>
+  </div>
+
+  <footer class="footer-note">
+    <span>现场记录 B3-03 · 三号冷库 · 门禁未解</span>
+    <span><a href="index.html">寻人帖</a> · <a href="hospital.html">病历</a></span>
+    <span><a href="start.html">回到起始页</a></span>
+  </footer>
+  <div class="page-no">第 13 页 / 共 30 页</div>
+</div>
+<script src="assets/game.js"></script>
+</body>
+</html>

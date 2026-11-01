@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>结案黑板 · 大厦崩塌</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="sheet">
+  <header class="case-head">
+    <div class="case-brand">
+      <strong>河北师大附中 · 旧教学楼 · 高三（2）班</strong>
+      SJZ-1998-1007 / 结案现场 / 2026-08-17
+    </div>
+  </header>
+
+  <nav class="crumbs">
+    <a href="index.html">寻人帖</a><span class="sep">/</span>
+    <a href="classroom.html">旧教室</a><span class="sep">/</span>
+    <span class="current">结案黑板</span>
+  </nav>
+
+  <section class="page-head">
+    <div class="eyebrow">FINAL DEDUCTION · ROOM 302</div>
+    <h1 class="page-title">结案黑板</h1>
+    <p class="page-sub">2026年8月17日，傍晚。旧教学楼三天后拆除。<br>黑板擦得很干净，粉笔槽里有一截断掉的粉笔。</p>
+    <div class="page-meta">
+      <span>地点：<b>旧教学楼三层</b></span>
+      <span>拆除：<b>2026-08-20</b></span>
+      <span>状态：<b>等待答案</b></span>
+    </div>
+  </section>
+
+  <figure class="plate">
+    <img src="assets/images/p16-final.jpg" alt="结案黑板与粉笔、课桌">
+    <figcaption>
+      <span>结案黑板 · 高三（2）班 · 2026年8月17日</span>
+      <span class="no">PLATE 16 / 结案</span>
+    </figcaption>
+  </figure>
+
+  <div class="body-copy">
+    <p class="lead">你把带回来的材料摊在课桌上。名单、病历、磁带、报纸、假钞、还有一枚从冷库墙角捡到的厂徽。</p>
+    <p>黑板上的粉笔字不是你的。是很多年前，某个坐在这里的人留下的。现在，轮到你写。</p>
+    <p class="small">提示：答案不是猜谜。三组编号都能从已归档的材料里找到。全部 13 份材料归档，并且真正打开冷库第三排铁盒里的试药名单之后，才能抵达真正的结案。</p>
+  </div>
+
+  <div class="final-card">
+    <h2>黑板上写下结案报告</h2>
+    <p class="sub">FINAL REPORT · 三组编号 · 三个判断</p>
+
+    <form data-final-form>
+      <div class="code-grid">
+        <div class="code-cell">
+          <label for="code-id">失踪工人的工号</label>
+          <input id="code-id" name="code_id" type="text" inputmode="numeric" maxlength="8" placeholder="·····" autocomplete="off">
+        </div>
+        <div class="code-cell">
+          <label for="code-door">三号冷库门禁</label>
+          <input id="code-door" name="code_door" type="text" inputmode="numeric" maxlength="8" placeholder="····" autocomplete="off">
+        </div>
+        <div class="code-cell">
+          <label for="code-num">铁盒名单人数</label>
+          <input id="code-num" name="code_num" type="text" inputmode="numeric" maxlength="4" placeholder="··" autocomplete="off">
+        </div>
+      </div>
+
+      <div class="q-block">
+        <p class="q-title">一、1998年10月7日夜里，父亲最后去了哪里？</p>
+        <div class="q-opts">
+          <label class="q-opt"><input type="radio" name="q1" value="mall"><span>人民商场天台。他买完假枪后，去了商场楼顶。</span></label>
+          <label class="q-opt"><input type="radio" name="q1" value="cold"><span>药厂主楼地下三号冷库。他去取第三排铁盒里的名单。</span></label>
+          <label class="q-opt"><input type="radio" name="q1" value="school"><span>师大附中旧教室。他去看儿子打球，然后一直坐在教室里。</span></label>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <p class="q-title">二、他买那把塑料手枪，是为了什么？</p>
+        <div class="q-opts">
+          <label class="q-opt"><input type="radio" name="q2" value="money"><span>抢钱。母亲的病需要钱，他没有别的办法。</span></label>
+          <label class="q-opt"><input type="radio" name="q2" value="threaten"><span>吓住厂长，逼他交出试药名单和医药费。</span></label>
+          <label class="q-opt"><input type="radio" name="q2" value="suicide"><span>结束自己的生命。他已经被买断工龄压垮了。</span></label>
+        </div>
+      </div>
+
+      <div class="q-block">
+        <p class="q-title">三、歌词里那座崩塌的“大厦”，在这个故事里最先倒下的是什么？</p>
+        <div class="q-opts">
+          <label class="q-opt"><input type="radio" name="q3" value="mall"><span>人民商场。八角柜台被拆掉的那一天。</span></label>
+          <label class="q-opt"><input type="radio" name="q3" value="factory"><span>第四制药厂主楼。1998年10月7日23:40爆破的那栋楼。</span></label>
+          <label class="q-opt"><input type="radio" name="q3" value="mind"><span>他的精神世界。一万匹马跑过之后，一切都塌了。</span></label>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button type="submit" class="btn primary">把答案写在黑板上</button>
+      </div>
+      <p class="form-msg" data-final-msg></p>
+    </form>
+  </div>
+
+  <div class="page-grid">
+    <div class="body-copy">
+      <p class="small">提交后，你会看到一个结局。结局有五种：你的判断和归档材料，会决定你走到哪一面墙前。</p>
+    </div>
+    <aside>
+      <div class="side-card">
+        <h3>案卷目录</h3>
+        <p><a href="newspaper.html">旧报纸</a> · <a href="gate.html">登记簿</a><br>
+        <a href="locker.html">更衣柜</a> · <a href="home.html">厨房</a><br>
+        <a href="hospital.html">病历</a> · <a href="mall.html">八角柜台</a><br>
+        <a href="school.html">球室</a> · <a href="classroom.html">旧教室</a><br>
+        <a href="bbs.html">BBS</a> · <a href="tape.html">磁带</a><br>
+        <a href="coldroom.html">冷库</a></p>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="footer-note">
+    <span>结案现场 · 高三（2）班 · 2026-08-17</span>
+    <span><a href="index.html">寻人帖</a></span>
+    <span><a href="start.html">回到起始页</a></span>
+  </footer>
+  <div class="page-no">第 16 页 / 共 30 页</div>
+</div>
+<script src="assets/game.js"></script>
+</body>
+</html>

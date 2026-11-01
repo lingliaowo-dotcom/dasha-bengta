@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>server.log · 大厦崩塌</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-detail="server">
+<div class="sheet">
+  <header class="case-head">
+    <div class="case-brand">
+      <strong>石家庄市档案馆 · 机房现场记录</strong>
+      SJZ-1998-1007 / BBS-SRV / 断电二十八年
+    </div>
+  </header>
+
+  <nav class="crumbs">
+    <a href="index.html">寻人帖</a><span class="sep">/</span>
+    <a href="bbs-hidden.html">缓存区 · 已删除帖</a><span class="sep">/</span>
+    <span class="current">server.log</span>
+  </nav>
+
+  <section class="page-head">
+    <div class="eyebrow">MACHINE ROOM · B2 · NO POWER SINCE 1998</div>
+    <h1 class="page-title">断电二十八年的服务器</h1>
+    <p class="page-sub">第四制药厂旧址 · 地下二层机房<br>机柜没有接电。备用电池在1998年就鼓了包。日志打印机却在出纸。</p>
+    <div class="page-meta">
+      <span>机型：<b>长城 486 / 塔式</b></span>
+      <span>序列号：<b>SF-04071</b></span>
+      <span>硬盘：<b>已拆除</b></span>
+      <span>状态：<b>仍在运行</b></span>
+    </div>
+  </section>
+
+  <figure class="plate">
+    <img src="assets/images/p19-server.jpg" alt="地下机房里没有接电的服务器与拖到地上的打印纸">
+    <figcaption>
+      <span>第四制药厂旧址 · 地下二层机房 · 2026年8月17日</span>
+      <span class="no">PLATE 19 / 服务器</span>
+    </figcaption>
+  </figure>
+
+  <div class="record">
+    <div class="doc-head"><span>server.log · 连续打印纸带</span><span>共 11 段，第 9 段起为异常</span></div>
+    <h2>日志</h2>
+    <table class="ledger">
+      <tr><th style="width:34%">时间</th><th>记录</th></tr>
+      <tr><td>1998-10-07 23:40:11</td><td>市电中断。UPS 剩余 4 分钟。</td></tr>
+      <tr><td>1998-10-07 23:59:59</td><td>用户 04071 登录。来源 IP：B3-03。</td></tr>
+      <tr class="mark"><td>1998-10-08 00:00:03</td><td>admin 删除帖 4071。原因：无。</td></tr>
+      <tr><td>1998-10-08 00:00:05</td><td>系统停机。最后一条正常日志。</td></tr>
+      <tr><td colspan="2" style="color:#8b7a5e">—— 纸带在这里空了两万三千七百多行 ——</td></tr>
+      <tr class="mark"><td>2026-08-17 03:17:17</td><td>POWER ON。外部电源：无。电池：无。</td></tr>
+      <tr><td>2026-08-17 03:17:18</td><td>用户 04071 登录。距上次登录：10146 天。</td></tr>
+      <tr><td>2026-08-17 03:17:20</td><td>帖 4071 重新提交。结果：成功。</td></tr>
+      <tr class="mark"><td>2026-08-17 03:17:21</td><td>会话状态：STILL INSIDE。</td></tr>
+      <tr><td>2026-08-17 03:18:00</td><td>停机请求：未收到。</td></tr>
+      <tr><td>2026-08-17 18:42:07</td><td>打印机开始出纸。操作人：无。</td></tr>
+    </table>
+  </div>
+
+  <div class="body-copy">
+    <p class="lead">机柜的电源线被人剪断过，断口氧化成黑色。UPS 电池鼓着包，漏出来的液体在水泥地上干成了一片白痕。</p>
+    <p>硬盘被人拆走了。主板上没有内存条。按任何一本维修手册的说法，这台机器都不可能开机，更不可能写日志。</p>
+    <p>可是打印机的纸带拖到了门口，长九米四。最后一段的时间戳是 <b>2026-08-17 03:17</b>——就是那条帖子重新出现的那一秒。</p>
+    <p>“STILL INSIDE”不是 BBS 程序的字段。档案馆请人核对过 1998 年的源码，整个站里没有这一行字符串。它像是有人用键盘一个字一个字敲进去的。</p>
+  </div>
+
+  <div class="note-line">
+    <b>现场记录</b><br>
+    18:42　打印机开始出纸，纸带仍有温度<br>
+    18:47　拔掉打印机数据线，出纸未停止<br>
+    18:52　切断机房总闸，出纸未停止<br>
+    18:58　纸带上出现最后一行：<b>04:07 06 32 30 32 36 30 38 31 37</b><br>
+    19:03　纸带停止。整卷纸被带回档案馆。
+  </div>
+
+  <div class="page-grid">
+    <div class="body-copy">
+      <p>最后那一行十六进制，翻译过来是“20260817”。打印它的时候，机房的总闸已经断了六分钟。</p>
+      <p>父亲在 1998 年 10 月 7 日 23:59 登录过这台机器。二十八年后，同一个账号在同一个 IP 上登录，会话状态停在“仍在里面”。</p>
+      <p>这不是鬼故事。这是一份没人能解释的现场记录。它的编号是 SF-04071，和父亲的工号一模一样。</p>
+      <div class="btn-row">
+        <a class="btn primary" href="classroom.html">去旧教室看黑板</a>
+        <a class="btn" href="bbs-hidden.html">回缓存区</a>
+        <a class="btn" href="final.html">写下答案</a>
+      </div>
+    </div>
+    <aside>
+      <div class="side-card">
+        <h3>机器参数</h3>
+        <p class="mono">长城 486 DX2/66<br>内存 8MB（已空）<br>硬盘 540MB（已拆）<br>最后一次通电：1998</p>
+      </div>
+      <div class="side-card">
+        <h3>一句话</h3>
+        <p class="quote">“生活在经验里，<br>直到大厦崩塌。”</p>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="footer-note">
+    <span>机房记录 B2-SRV · server.log</span>
+    <span><a href="bbs-hidden.html">缓存区</a> · <a href="classroom.html">旧教室</a></span>
+    <span><a href="start.html">回到起始页</a></span>
+  </footer>
+  <div class="page-no">第 19 页 / 共 30 页</div>
+</div>
+<script src="assets/game.js"></script>
+</body>
+</html>

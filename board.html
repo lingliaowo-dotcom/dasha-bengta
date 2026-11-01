@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>板书 · 大厦崩塌</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="sheet">
+  <header class="case-head">
+    <div class="case-brand">
+      <strong>石家庄市档案馆 · 结案板书</strong>
+      SJZ-1998-1007 / 终幕前页 / 只读
+    </div>
+  </header>
+
+  <nav class="crumbs">
+    <a href="final.html">结案黑板</a><span class="sep">/</span>
+    <span class="current">板书</span><span class="sep">/</span>
+    <a href="ending.html">结案</a>
+  </nav>
+
+  <section class="page-head">
+    <div class="eyebrow">LAST WRITING · OLD CLASSROOM</div>
+    <h1 class="page-title">把答案写在黑板上</h1>
+    <p class="page-sub">粉笔灰落下来。有人替他把没说完的话，一笔一画写在黑板上。</p>
+  </section>
+
+  <div class="blackboard">
+    <div class="board-face" id="board-text"><span class="chalk-cursor" id="chalk-cursor"></span></div>
+  </div>
+
+  <div class="board-actions">
+    <a class="btn primary" id="leave-btn" href="ending.html" style="display:none">离开教室 · 看结局</a>
+    <button type="button" class="btn" id="skip-btn">快进</button>
+  </div>
+
+  <footer class="footer-note">
+    <span>旧教学楼 · 高三（2）班 · 2026年8月17日</span>
+    <span><a href="final.html">结案黑板</a> · <a href="ending.html">结案</a></span>
+    <span><a href="start.html">回到起始页</a></span>
+  </footer>
+  <div class="page-no">板书 / 共 30 页</div>
+</div>
+
+<script>
+(function () {
+  var TEXT = [
+    '结案 · SJZ-1998-1007',
+    '',
+    '陈卫东，仓库保管员，工号04071。',
+    '1998年10月7日夜里，他攥着一把三元五角的塑料枪，',
+    '走进主楼地下三层，去取第三排铁盒里的名单。',
+    '门是从外面锁的。',
+    '23:59:59，他把想说的话发进一台凌晨就要关站的论坛。',
+    '没有人听见大厦崩塌的声音。',
+    '',
+    '名单上十七个人。第三行，李素芬，Y-17，',
+    '他的妻子，等到最后一锅粥凉掉。',
+    '',
+    '石家庄——',
+    '这座在计划经济里辉煌过的城：',
+    '药厂的汽笛，棉纺厂的下班铃，桥西的铁路。',
+    '市场经济的门口，它慢慢安静下来。',
+    '时代没有放过它，',
+    '直到三十年之后，都没有放过他。',
+    '',
+    '如此生活三十年。',
+    '2026年8月17日，那台服务器还亮着灯，',
+    '替一座没落的城市，守着没说完的话。'
+  ].join('\n');
+
+  var out = document.getElementById('board-text');
+  var cursor = document.getElementById('chalk-cursor');
+  var leave = document.getElementById('leave-btn');
+  var skip = document.getElementById('skip-btn');
+  var i = 0;
+  var timer = null;
+
+  function finish() {
+    if (timer) { clearInterval(timer); timer = null; }
+    if (cursor && cursor.parentNode) cursor.parentNode.removeChild(cursor);
+    if (leave) leave.style.display = '';
+    if (skip) skip.parentNode.removeChild(skip);
+  }
+
+  function tick() {
+    if (i >= TEXT.length) { finish(); return; }
+    out.insertBefore(document.createTextNode(TEXT.charAt(i)), cursor);
+    i++;
+  }
+
+  timer = setInterval(tick, 55);
+
+  if (skip) {
+    skip.addEventListener('click', function () {
+      out.insertBefore(document.createTextNode(TEXT.slice(i)), cursor);
+      i = TEXT.length;
+      finish();
+    });
+  }
+})();
+</script>
+</body>
+</html>
