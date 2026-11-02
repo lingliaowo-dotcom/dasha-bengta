@@ -398,6 +398,9 @@
     var KEY_T = 'sjz_bgm_t';
     var startBtn = document.querySelector('[data-bgm-start]');
 
+    function store(k, v) { try { localStorage.setItem(k, v); } catch (err) {} }
+    function read(k) { try { return localStorage.getItem(k); } catch (err) { return null; } }
+
     function makeAudio() {
       var a = document.createElement('audio');
       a.src = 'assets/audio/bgm.m4a';
@@ -409,7 +412,7 @@
 
     if (startBtn) {
       startBtn.addEventListener('click', function (e) {
-        try { localStorage.setItem(KEY_ON, '1'); localStorage.setItem(KEY_T, '0'); } catch (err) {}
+        store(KEY_ON, '1'); store(KEY_T, '0');
         var a = makeAudio();
         var p = null;
         try { p = a.play(); } catch (err) {}
@@ -422,43 +425,60 @@
       return;
     }
 
-    var on = false;
-    try { on = localStorage.getItem(KEY_ON) === '1'; } catch (err) {}
-    if (!on) return;
+    // 默认开启；仅在显式关闭（=0）时不播。浏览器会门控声音，手势后恢复
+    if (read(KEY_ON) === '0') return;
 
     var audio = makeAudio();
-    var t = 0;
-    try { t = parseFloat(localStorage.getItem(KEY_T) || '0') || 0; } catch (err) {}
+    var t = parseFloat(read(KEY_T) || '0') || 0;
     audio.addEventListener('loadedmetadata', function () {
       if (t > 0 && (!audio.duration || t < audio.duration - 1)) {
         try { audio.currentTime = t; } catch (err) {}
       }
     });
-    var saveT = function () {
-      try { localStorage.setItem(KEY_T, String(audio.currentTime || 0)); } catch (err) {}
-    };
+    var saveT = function () { store(KEY_T, String(audio.currentTime || 0)); };
     setInterval(saveT, 2000);
+    window.addEventListener('pagehide', saveT);
     window.addEventListener('beforeunload', saveT);
 
-    var played = false;
+    var audible = false;
     function unhook() {
       document.removeEventListener('pointerdown', onGesture);
       document.removeEventListener('keydown', onGesture);
+      document.removeEventListener('touchstart', onGesture);
     }
-    function tryPlay() {
-      if (played) return;
+    function markAudible() {
+      if (audible) return;
+      audible = true;
+      unhook();
+    }
+    function startMuted() {
+      // 带声自动播放被拒：先静音续播保持进度，首次触碰页面时取消静音
+      if (audible) return;
+      audio.muted = true;
+      try { audio.play(); } catch (err) {}
+    }
+    function tryAudible() {
+      if (audible) return;
       var p = null;
       try { p = audio.play(); } catch (err) {}
       if (p && p.then) {
-        p.then(function () { played = true; unhook(); }, function () {});
+        p.then(markAudible, startMuted);
       } else {
-        played = true; unhook();
+        markAudible();
       }
     }
-    function onGesture() { tryPlay(); }
+    function onGesture() {
+      if (audible) return;
+      audio.muted = false;
+      tryAudible();
+    }
     document.addEventListener('pointerdown', onGesture);
     document.addEventListener('keydown', onGesture);
-    tryPlay();
+    document.addEventListener('touchstart', onGesture);
+    window.addEventListener('pageshow', function (e) {
+      if (e.persisted && audible && audio.paused) { try { audio.play(); } catch (err) {} }
+    });
+    tryAudible();
   }
 
   function init() {
