@@ -437,8 +437,8 @@
     });
     var saveT = function () { store(KEY_T, String(audio.currentTime || 0)); };
     setInterval(saveT, 2000);
+    // 不挂 beforeunload：它会使 Chrome 的前进后退缓存（bfcache）失格
     window.addEventListener('pagehide', saveT);
-    window.addEventListener('beforeunload', saveT);
 
     var audible = false;
     function unhook() {
@@ -476,7 +476,13 @@
     document.addEventListener('keydown', onGesture);
     document.addEventListener('touchstart', onGesture);
     window.addEventListener('pageshow', function (e) {
-      if (e.persisted && audible && audio.paused) { try { audio.play(); } catch (err) {} }
+      if (!e.persisted) return;
+      // bfcache 恢复：媒体在入缓存时被暂停，此处恢复
+      if (audible) {
+        if (audio.paused) { try { audio.play(); } catch (err) {} }
+      } else {
+        startMuted();
+      }
     });
     tryAudible();
   }
